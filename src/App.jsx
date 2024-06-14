@@ -5,7 +5,7 @@ function App() {
   return (
     <div className='app'>
       <header className='app-header'>
-        <h1>Registeration Form</h1>
+        <h1>Hello!! Registeration Yourself and be our new member</h1>
         <Registration/>
       </header>
     </div>
