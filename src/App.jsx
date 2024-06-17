@@ -1,13 +1,29 @@
-import './Registeration.css'
-import Registration from './Registration'
+import React, { useState } from 'react';
+import './Registeration.css';
+import Registration from './Registration';
+import LoginPage from './LoginPage';
 
 function App() {
+  const [showLogin, setShowLogin] = useState(true);
+  const [showRegistration, setShowRegistration] = useState(false);
+
+  const handleShowRegistration = () => {
+    setShowLogin(false);
+    setShowRegistration(true);
+  };
+
+  const handleShowLogin = () => {
+    setShowLogin(true);
+    setShowRegistration(false);
+  };
+
   return (
     <div className='app'>
       <header className='app-header'>
         <div className='left'>
           <h1>Ticketify</h1>
-          <Registration />
+          {showLogin && <LoginPage onShowRegistration={handleShowRegistration} />}
+          {showRegistration && <Registration onShowLogin={handleShowLogin} />}
         </div>
         <div className='right'>
           <div className='overlay'>
@@ -19,4 +35,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

@@ -38,13 +38,14 @@ function Registration() {
         alert('Error creating user: ' + error.message);
       });
   };
+  
 
   return (
     <Fragment>
       <form className="registration-form" onSubmit={handleSave}>
         <div className="form-group">
           <label htmlFor="userId">UserId:</label>
-          <input type="text" id="userId" name="userId" onChange={(e) => setId(e.target.value)} required />
+          <input type="text" id="userId" name="userId" onChange={(e) => setId(e.target.value)}  />
         </div>
         <div className="form-group">
           <label htmlFor="userName">UserName:</label>
@@ -78,7 +79,7 @@ function Registration() {
           <label htmlFor="role">Role:</label>
           <input type="text" id="role" name="role" onChange={(e) => setRole(e.target.value)} />
         </div>
-        <button className="submit-button" type="submit">Submit</button>
+        <button className="submit-button" type="submit">Register</button>
       </form>
     </Fragment>
   );
