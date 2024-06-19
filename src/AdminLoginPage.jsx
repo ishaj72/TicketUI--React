@@ -2,19 +2,19 @@ import React, { Fragment, useState } from 'react';
 import axios from 'axios';
 import './styles/LoginPage.css'
 
-function LoginPage({ onShowRegistration }) {
-  const [userid, setUserId] = useState('');
+function AdminLoginPage({ onShowRegistration }) {
+  const [id, setAdminId] = useState('');
+  const [name, setAdminName] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const url = `https://localhost:7094/api/UserLogin/Login?userid=${encodeURIComponent(userid)}&password=${encodeURIComponent(password)}`;
-    console.log(url);
+    const url = `https://localhost:7094/api/AdminLogin/Admin?id=${encodeURIComponent(id)}&name=${encodeURIComponent(name)}&password=${encodeURIComponent(password)}`;
 
     axios.post(url)
       .then((result) => {
-        alert("You are now logged in!!");
+        alert(`Logging in ${name} as administrator`)
       })
       .catch((error) => {
         console.error('There was an error!', error);
@@ -26,8 +26,12 @@ function LoginPage({ onShowRegistration }) {
     <Fragment>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="userid">UserId</label>
-          <input type="text" name="userid" onChange={(e) => setUserId(e.target.value)} />
+          <label htmlFor="adminId">Admin Id</label>
+          <input type="text" name="adminId" onChange={(e) => setAdminId(e.target.value)} />
+        </div>
+        <div>
+          <label htmlFor="adminName">Admin Name</label>
+          <input type="text" name="adminName" onChange={(e) => setAdminName(e.target.value)} />
         </div>
         <div>
           <label htmlFor="password">Password</label>
@@ -35,13 +39,8 @@ function LoginPage({ onShowRegistration }) {
         </div>
         <button type="submit">Login</button>
       </form>
-      <div style={{ marginTop: '10px' }}>
-      <p><a href="/register">Get Registered With Us!!</a></p>
-        <p><a href="#">Forgot Password?</a></p>
-        <p><a href="/adminlogin">Login as Administrator</a></p>
-      </div>
     </Fragment>
   );
 }
 
-export default LoginPage;
+export default AdminLoginPage;

@@ -1,37 +1,16 @@
 import React, { useState } from 'react';
-import './Registeration.css';
+import {Route, Routes} from 'react-router-dom'
 import Registration from './Registration';
 import LoginPage from './LoginPage';
+import AdminLoginPage from './AdminLoginPage';
 
 function App() {
-  const [showLogin, setShowLogin] = useState(true);
-  const [showRegistration, setShowRegistration] = useState(false);
-
-  const handleShowRegistration = () => {
-    setShowLogin(false);
-    setShowRegistration(true);
-  };
-
-  const handleShowLogin = () => {
-    setShowLogin(true);
-    setShowRegistration(false);
-  };
-
   return (
-    <div className='app'>
-      <header className='app-header'>
-        <div className='left'>
-          <h1>Ticketify</h1>
-          {showLogin && <LoginPage onShowRegistration={handleShowRegistration} />}
-          {showRegistration && <Registration onShowLogin={handleShowLogin} />}
-        </div>
-        <div className='right'>
-          <div className='overlay'>
-            <p className='overlay-text'>Welcome<br />Get yourself registered with us</p>
-          </div>
-        </div>
-      </header>
-    </div>
+    <Routes>
+      <Route path = "/register" element={<Registration/>}/>
+      <Route path = "/login" element={<LoginPage/>}/>
+      <Route path = "/adminlogin" element={<AdminLoginPage/>}/>
+    </Routes>
   );
 }
 
