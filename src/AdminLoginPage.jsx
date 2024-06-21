@@ -18,7 +18,6 @@ function AdminLoginPage() {
       .then((result) => {
         alert(`Logging in ${name} as administrator`);
         const token = result.data;
-        console.log(result.data)// Assuming the token is returned in the response data
         localStorage.setItem('adminToken', token);
         navigate('/addtrains');
       })
