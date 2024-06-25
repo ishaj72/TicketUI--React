@@ -37,7 +37,7 @@ function LoginPage({ onShowRegistration }) {
       </form>
       <div style={{ marginTop: '10px' }}>
         <p><a href="/register">Get Registered With Us!!</a></p>
-        <p><a href="#">Forgot Password?</a></p>
+        <p><a href="/forgotpassword">Forgot Password?</a></p>
         <p><a href="/adminlogin">Login as Administrator</a></p>
       </div>
     </Fragment>
