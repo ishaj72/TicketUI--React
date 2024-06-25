@@ -10,7 +10,6 @@ A comprehensive web application for reserving tickets, integrated with an API fo
   - [Steps](#steps)
   - [Prerequisites](#prerequisites) 
 - [Usage](#usage)
-- [License](#license)
 - [Images](#images)
 
 ## Introduction
@@ -50,8 +49,11 @@ Here's how you can leverage this application based on your role:
 - https://localhost:7094/api/User/Create
 - https://localhost:7094/api/UserLogin/Login?userid=${encodeURIComponent(userid)}&password=${encodeURIComponent(password)} 
 
+## Link to API repository 
+https://github.com/ishaj72/RailwayTicketAPI
+
 ## Images
-- Add Trains 
+- Add Trains
 <img src="src\assets\addtrains.png" alt="addtrains" width="200" height="150">
 <img src="src\assets\addtrains2.png" alt="addtrains" width="200" height="150">
 
