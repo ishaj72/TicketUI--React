@@ -55,8 +55,8 @@ Here's how you can leverage this application based on your role:
 <img src="src\assets\addtrains.png" alt="addtrains" width="200" height="150">
 <img src="src\assets\addtrains2.png" alt="addtrains" width="200" height="150">
 
--Login Page
+- Login Page
 <img src="src\assets\Login.png" alt="addtrains" width="200" height="150">
 
--Register Page
+- Register Page
 <img src="src\assets\register.png" alt="addtrains" width="200" height="150">
