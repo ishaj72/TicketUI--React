@@ -77,6 +77,46 @@ function AddTrains() {
       });
   };
 
+  const handleUpdate = (train) => {
+    const url = `https://localhost:7094/api/TrainDetails/UpdateTrain/${train.trainNumber}`;
+    const token = localStorage.getItem('adminToken');
+
+    axios.put(url, train, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then((result) => {
+        alert(result.data);
+        // Fetch the updated list of trains
+        fetchTrains();
+      })
+      .catch((error) => {
+        console.error('There was an error updating the train!', error);
+        alert('Error updating train: ' + error.message);
+      });
+  };
+
+  const handleDelete = (trainNumber) => {
+    const url = `https://localhost:7094/api/TrainDetails/Delete/?trainNumber=${encodeURIComponent(trainNumber)}`;
+    const token = localStorage.getItem('adminToken');
+
+    axios.delete(url, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then((result) => {
+        alert(result.data);
+        // Fetch the updated list of trains
+        fetchTrains();
+      })
+      .catch((error) => {
+        console.error('There was an error deleting the train!', error);
+        alert('Error deleting train: ' + error.message);
+      });
+  };
+
   const showMore = () => {
     setVisibleTrains(prevVisibleTrains => prevVisibleTrains + 3);
   };
@@ -100,6 +140,10 @@ function AddTrains() {
               <p>Source Departure: {train.sourceDeparture}</p>
               <p>Destination Arrival: {train.destinationArrival}</p>
               <p>Destination Departure: {train.destinationDeparture}</p>
+              <div className="button-container">
+                <button className="update-button" onClick={() => handleUpdate(train)}>Update</button>
+                <button className="delete-button" onClick={() => handleDelete(train.trainNumber)}>Delete</button>
+              </div>
             </div>
           ))}
           <div className="card add-train-card">
