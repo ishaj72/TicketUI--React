@@ -1,7 +1,5 @@
 # Ticket Reservation WebApp with API Integration
-A comprehensive web application for reserving tickets, integrated with an API for enhanced functionality. This Web App allows two roles:
-- **Admin**: Performs CRUD operations for train and seat details.
-- **User**: Performs CRUD operations on their profile and manages ticket booking and cancellations.
+A comprehensive web application for reserving tickets, integrated with an API for enhanced functionality.
 
 **Note:** This project is currently a work in progress and is not yet completed.
 
@@ -18,11 +16,17 @@ A comprehensive web application for reserving tickets, integrated with an API fo
 - [License](#license)
 
 ## Introduction
-
-This project aims to solve problem X by providing features A, B, and C.
+This is React.Js Web App that allows two roles:
+- **Admin**: Performs CRUD operations for train and seat details.
+- **User**: Performs CRUD operations on their profile and manages ticket booking and cancellations.
 
 ## Installation
-
+<ul>
+<li>Clone the github repository : git clone https://github.com/ishaj72/TicketUI--React.git</li>
+<li>Navigate to the project : cd TicketUI--React</li>
+<li>Install frontend dependencies <br/> -npm install  <br/> -npm react-router-dom  <br/> -npm install axois</li>
+<li>Start your project : npm run dev</li>
+</ul>
 ### Prerequisites
 
 - Node.js
