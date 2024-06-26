@@ -85,7 +85,7 @@ function AddTrains() {
   };
 
   const handleDelete = (trainNumber) => {
-    const url = `https://localhost:7094/api/TrainDetails/Delete/?trainNumber=${encodeURIComponent(trainNumber)}`;
+    const url = `https://localhost:7094/api/TrainDetails/Delete/${encodeURIComponent(trainNumber)}`;
     const token = localStorage.getItem('adminToken');
 
     axios.delete(url, {
