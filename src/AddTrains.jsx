@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './styles/AddTrains.css';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddTrains() {
   const [trainName, setTrainName] = useState('');
@@ -14,24 +15,26 @@ function AddTrains() {
   const [trains, setTrains] = useState([]);
   const [visibleTrains, setVisibleTrains] = useState(3);
 
+  const navigate = useNavigate();
+
+  // Fetch the list of trains from the API
+  const fetchTrains = async () => {
+    const url = "https://localhost:7094/api/AdminLogin/TrainDetails";
+    const token = localStorage.getItem('adminToken');
+
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      setTrains(response.data);
+    } catch (error) {
+      console.error('There was an error fetching trains!', error);
+    }
+  };
+
   useEffect(() => {
-    // Fetch the list of trains from the API when the component mounts
-    const fetchTrains = async () => {
-      const url = "https://localhost:7094/api/AdminLogin/TrainDetails";
-      const token = localStorage.getItem('adminToken');
-
-      try {
-        const response = await axios.get(url, {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-        setTrains(response.data);
-      } catch (error) {
-        console.error('There was an error fetching trains!', error);
-      }
-    };
-
     fetchTrains();
   }, []);
 
@@ -77,24 +80,8 @@ function AddTrains() {
       });
   };
 
-  const handleUpdate = (train) => {
-    const url = `https://localhost:7094/api/TrainDetails/UpdateTrain/${train.trainNumber}`;
-    const token = localStorage.getItem('adminToken');
-
-    axios.put(url, train, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-      .then((result) => {
-        alert(result.data);
-        // Fetch the updated list of trains
-        fetchTrains();
-      })
-      .catch((error) => {
-        console.error('There was an error updating the train!', error);
-        alert('Error updating train: ' + error.message);
-      });
+  const handleUpdate = (trainNumber) => {
+    navigate(`/update-train/${trainNumber}`);
   };
 
   const handleDelete = (trainNumber) => {
@@ -116,7 +103,6 @@ function AddTrains() {
         alert('Error deleting train: ' + error.message);
       });
   };
-
   const showMore = () => {
     setVisibleTrains(prevVisibleTrains => prevVisibleTrains + 3);
   };
@@ -141,7 +127,7 @@ function AddTrains() {
               <p>Destination Arrival: {train.destinationArrival}</p>
               <p>Destination Departure: {train.destinationDeparture}</p>
               <div className="button-container">
-                <button className="update-button" onClick={() => handleUpdate(train)}>Update</button>
+              <button className="update-button" onClick={() => handleUpdate(train.trainNumber)}>Update</button>
                 <button className="delete-button" onClick={() => handleDelete(train.trainNumber)}>Delete</button>
               </div>
             </div>

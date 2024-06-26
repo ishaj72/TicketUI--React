@@ -5,6 +5,7 @@ import LoginPage from './LoginPage';
 import AdminLoginPage from './AdminLoginPage';
 import AddTrains from './AddTrains';
 import ForgotPassword from './ForgotPassword';
+import UpdateTrains from './UpdateTrains';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path = "/adminlogin" element={<AdminLoginPage/>}/>
       <Route path = "/addtrains" element={<AddTrains/>}/>
       <Route path = "/forgotpassword" element={<ForgotPassword/>}/>
+      <Route path="/update-train/:trainNumber" element={<UpdateTrains/>} />
     </Routes>
   );
 }
