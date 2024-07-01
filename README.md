@@ -14,7 +14,7 @@ A comprehensive web application for reserving tickets, integrated with an API fo
 
 ## Introduction
 Welcome to the React.js Web App designed to streamline ticket reservation processes. This application caters to two distinct roles:
-- **Admin**: Responsible for comprehensive CRUD operations related to managing train details and seat allocations.
+- **Admin**: Responsible for comprehensive CRUD operations related to managing train details and seat allocations.(Everytime a new train is added 10 seats(for each of 3AC , 2AC, 1AC , Sleeper, General))
 - **User**: Enables users to manage their profiles efficiently, facilitating ticket booking and cancellation seamlessly.
 
 ## Installation
@@ -62,3 +62,6 @@ https://github.com/ishaj72/RailwayTicketAPI
 
 - Register Page
 <img src="src\assets\register.png" alt="addtrains" width="200" height="150">
+
+- Add/Delete Page
+<img src="src\assets\addeleteSeat.png" alt="addtrains" width="200" height="150">
