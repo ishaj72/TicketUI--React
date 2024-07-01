@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import './styles/AddTrains.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +38,7 @@ function AddTrains() {
     fetchTrains();
   }, []);
 
-  const handleSave = (event) => {
+  const handleSave = async (event) => {
     event.preventDefault(); // Prevent form submission
 
     const data = {
@@ -55,60 +55,63 @@ function AddTrains() {
     const url = "https://localhost:7094/api/TrainDetails/AddTrain";
     const token = localStorage.getItem('adminToken');
 
-    axios.post(url, data, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-      .then((result) => {
-        alert(result.data);
-        // Clear all input fields after successful submission
-        setTrainName('');
-        setTrainNumber('');
-        setSource('');
-        setDestination('');
-        setSourceArrival('');
-        setSourceDeparture('');
-        setDestinationArrival('');
-        setDestinationDeparture('');
-        // Fetch the updated list of trains
-        fetchTrains();
-      })
-      .catch((error) => {
-        console.error('There was an error!', error);
-        alert('Error creating train: ' + error.message);
+    try {
+      const result = await axios.post(url, data, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       });
+      alert(result.data);
+      // Clear all input fields after successful submission
+      setTrainName('');
+      setTrainNumber('');
+      setSource('');
+      setDestination('');
+      setSourceArrival('');
+      setSourceDeparture('');
+      setDestinationArrival('');
+      setDestinationDeparture('');
+      // Fetch the updated list of trains
+      fetchTrains();
+    } catch (error) {
+      console.error('There was an error!', error);
+      alert('Error creating train: ' + error.message);
+    }
   };
 
   const handleUpdate = (trainNumber) => {
     navigate(`/update-train/${trainNumber}`);
   };
 
-  const handleDelete = (trainNumber) => {
+  const handleDelete = async (trainNumber) => {
     const url = `https://localhost:7094/api/TrainDetails/Delete/${encodeURIComponent(trainNumber)}`;
     const token = localStorage.getItem('adminToken');
 
-    axios.delete(url, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-      .then((result) => {
-        alert(result.data);
-        // Fetch the updated list of trains
-        fetchTrains();
-      })
-      .catch((error) => {
-        console.error('There was an error deleting the train!', error);
-        alert('Error deleting train: ' + error.message);
+    try {
+      const result = await axios.delete(url, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       });
+      alert(result.data);
+      // Fetch the updated list of trains
+      fetchTrains();
+    } catch (error) {
+      console.error('There was an error deleting the train!', error);
+      alert('Error deleting train: ' + error.message);
+    }
   };
+
   const showMore = () => {
     setVisibleTrains(prevVisibleTrains => prevVisibleTrains + 3);
   };
 
   const showLess = () => {
     setVisibleTrains(3);
+  };
+
+  const handleManageSeats = (trainNumber) => {
+    navigate(`/manage-seats/${trainNumber}`);
   };
 
   return (
@@ -127,8 +130,9 @@ function AddTrains() {
               <p>Destination Arrival: {train.destinationArrival}</p>
               <p>Destination Departure: {train.destinationDeparture}</p>
               <div className="button-container">
-              <button className="update-button" onClick={() => handleUpdate(train.trainNumber)}>Update</button>
+                <button className="update-button" onClick={() => handleUpdate(train.trainNumber)}>Update</button>
                 <button className="delete-button" onClick={() => handleDelete(train.trainNumber)}>Delete</button>
+                <button onClick={() => handleManageSeats(train.trainNumber)}>Add/Delete seat</button>
               </div>
             </div>
           ))}

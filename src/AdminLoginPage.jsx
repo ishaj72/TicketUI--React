@@ -1,13 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import  { Fragment, useState } from 'react';
 import axios from 'axios';
 import './styles/LoginPage.css';
-import { useNavigate } from 'react-router-dom';
+ import { useNavigate } from 'react-router-dom';
 
 function AdminLoginPage() {
   const [id, setAdminId] = useState('');
   const [name, setAdminName] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ function AdminLoginPage() {
         alert(`Logging in ${name} as administrator`);
         const token = result.data;
         localStorage.setItem('adminToken', token);
-        navigate('/addtrains');
+         navigate('/addtrains');
       })
       .catch((error) => {
         console.error('There was an error!', error);
@@ -44,6 +44,9 @@ function AdminLoginPage() {
         </div>
         <button type="submit">Login</button>
       </form>
+      <div style={{ marginTop: '10px' }}>
+        <p><a href="/forgotpassword">Forgot Password?</a></p>
+      </div>
     </Fragment>
   );
 }

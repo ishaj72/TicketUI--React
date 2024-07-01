@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {Route, Routes} from 'react-router-dom'
 import Registration from './Registration';
 import LoginPage from './LoginPage';
@@ -6,6 +5,7 @@ import AdminLoginPage from './AdminLoginPage';
 import AddTrains from './AddTrains';
 import ForgotPassword from './ForgotPassword';
 import UpdateTrains from './UpdateTrains';
+import AddDeleteSeat from './AddDeleteSeat';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
       <Route path = "/addtrains" element={<AddTrains/>}/>
       <Route path = "/forgotpassword" element={<ForgotPassword/>}/>
       <Route path="/update-train/:trainNumber" element={<UpdateTrains/>} />
+      <Route path="/manage-seats/:trainNumber" element={<AddDeleteSeat />} />
     </Routes>
   );
 }

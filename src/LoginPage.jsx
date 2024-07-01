@@ -1,8 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 import axios from 'axios';
 import './styles/LoginPage.css'
 
-function LoginPage({ onShowRegistration }) {
+function LoginPage() {
   const [userid, setUserId] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,7 +13,7 @@ function LoginPage({ onShowRegistration }) {
     console.log(url);
 
     axios.post(url)
-      .then((result) => {
+      .then(() => {
         alert("You are now logged in!!");
       })
       .catch((error) => {
