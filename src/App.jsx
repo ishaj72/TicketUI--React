@@ -6,6 +6,7 @@ import AddTrains from './AddTrains';
 import ForgotPassword from './ForgotPassword';
 import UpdateTrains from './UpdateTrains';
 import AddDeleteSeat from './AddDeleteSeat';
+import ManageUserPage from './ManageUserPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path = "/forgotpassword" element={<ForgotPassword/>}/>
       <Route path="/update-train/:trainNumber" element={<UpdateTrains/>} />
       <Route path="/manage-seats/:trainNumber" element={<AddDeleteSeat />} />
+      <Route path="/manageUserPage" element={<ManageUserPage />} />
     </Routes>
   );
 }

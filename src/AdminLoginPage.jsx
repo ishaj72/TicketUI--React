@@ -1,13 +1,13 @@
 import  { Fragment, useState } from 'react';
 import axios from 'axios';
 import './styles/LoginPage.css';
- import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function AdminLoginPage() {
   const [id, setAdminId] = useState('');
   const [name, setAdminName] = useState('');
   const [password, setPassword] = useState('');
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();

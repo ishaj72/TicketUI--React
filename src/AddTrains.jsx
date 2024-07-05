@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './styles/AddTrains.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+// get train by train number function to add
 function AddTrains() {
   const [trainName, setTrainName] = useState('');
   const [trainNumber, setTrainNumber] = useState('');

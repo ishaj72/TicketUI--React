@@ -1,10 +1,12 @@
 import { Fragment, useState } from 'react';
 import axios from 'axios';
-import './styles/LoginPage.css'
+import './styles/LoginPage.css';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const [userid, setUserId] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +17,7 @@ function LoginPage() {
     axios.post(url)
       .then(() => {
         alert("You are now logged in!!");
+        navigate('/manageUserPage');
       })
       .catch((error) => {
         console.error('There was an error!', error);
