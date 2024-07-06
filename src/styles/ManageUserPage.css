@@ -27,7 +27,7 @@
 
 .button-group {
   display: flex;
-  gap: 25px;
+  gap: 10px;
 }
 
 .class-button {

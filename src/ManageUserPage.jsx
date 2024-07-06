@@ -6,6 +6,14 @@ function ManageUserPage() {
   const [source, setSource] = useState('');
   const [destination, setDestination] = useState('');
   const [trainDetails, setTrainDetails] = useState([]);
+  const [seatCounts, setSeatCount] = useState({
+    "1AC": 0,
+    "2AC": 0,
+    "3AC": 0,
+    "Sleeper": 0,
+    "General": 0
+  });
+  const [lastClickedButton, setLastClickedButton] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +27,30 @@ function ManageUserPage() {
     } catch (error) {
       console.log("Error fetching details:", error);
       alert('Error fetching train details: ' + error.message);
+    }
+  };
+
+  const fetchSeatCount = async (trainNumber, seatType) => {
+    const url = `https://localhost:7094/api/Search/GetTotalSeats?trainNumber=${encodeURIComponent(trainNumber)}&seatType=${encodeURIComponent(seatType)}`;
+    try {
+      const response = await axios.post(url);
+      const count = response.data;
+      setSeatCount(prevCounts => ({
+        ...prevCounts,
+        [seatType]: count
+      }));
+    } catch (error) {
+      console.log(`Error fetching ${seatType} seat count`, error);
+      alert(`Error fetching ${seatType} seat count: ${error.message}`);
+    }
+  };
+
+  const handleSeatButtonClick = (trainNumber, seatType) => {
+    if (lastClickedButton === seatType) {
+      setLastClickedButton('');
+    } else {
+      setLastClickedButton(seatType);
+      fetchSeatCount(trainNumber, seatType);
     }
   };
 
@@ -41,7 +73,7 @@ function ManageUserPage() {
       {trainDetails.length > 0 && (
         <div className="train-details">
           <h2>Available Trains</h2>
-          <table className = "table">
+          <table className="table">
             <thead>
               <tr>
                 <th>Train Name</th>
@@ -54,7 +86,7 @@ function ManageUserPage() {
               </tr>
             </thead>
             <tbody>
-              {trainDetails.map((train)=>(
+              {trainDetails.map((train) => (
                 <tr key={train.trainNumber}>
                   <td>{train.trainName}</td>
                   <td>{train.trainNumber}</td>
@@ -63,12 +95,22 @@ function ManageUserPage() {
                   <td>{train.destination}</td>
                   <td>{train.destinationArrival}</td>
                   <td>
-                    <div>
-                    <button className="class-button">1AC</button>
-                      <button className="class-button">2AC</button>
-                      <button className="class-button">3AC</button>
-                      <button className="class-button">Sleeper</button>
-                      <button className="class-button">General</button>
+                    <div className="button-group">
+                      <button className="class-button" onClick={() => handleSeatButtonClick(train.trainNumber, "1AC")}>
+                        {lastClickedButton === "1AC" ? seatCounts["1AC"] : "1AC"}
+                      </button>
+                      <button className="class-button" onClick={() => handleSeatButtonClick(train.trainNumber, "2AC")}>
+                        {lastClickedButton === "2AC" ? seatCounts["2AC"] : "2AC"}
+                      </button>
+                      <button className="class-button" onClick={() => handleSeatButtonClick(train.trainNumber, "3AC")}>
+                        {lastClickedButton === "3AC" ? seatCounts["3AC"] : "3AC"}
+                      </button>
+                      <button className="class-button" onClick={() => handleSeatButtonClick(train.trainNumber, "Sleeper")}>
+                        {lastClickedButton === "Sleeper" ? seatCounts["Sleeper"] : "Sleeper"}
+                      </button>
+                      <button className="class-button" onClick={() => handleSeatButtonClick(train.trainNumber, "General")}>
+                        {lastClickedButton === "General" ? seatCounts["General"] : "General"}
+                      </button>
                     </div>
                   </td>
                 </tr>

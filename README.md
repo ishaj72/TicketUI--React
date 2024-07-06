@@ -65,3 +65,6 @@ https://github.com/ishaj72/RailwayTicketAPI
 
 - Add/Delete Page
 <img src="src\assets\addeleteSeat.png" alt="addtrains" width="200" height="150">
+
+- Search Trains
+<img src="src\assets\findTrain.png" alt="addtrains" width="200" height="150">
