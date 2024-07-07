@@ -15,8 +15,10 @@ function LoginPage() {
     console.log(url);
 
     axios.post(url)
-      .then(() => {
+      .then((result) => {
         alert("You are now logged in!!");
+        const token = result.data;
+        localStorage.setItem('userToken', token);
         navigate('/manageUserPage');
       })
       .catch((error) => {

@@ -7,6 +7,9 @@ import ForgotPassword from './ForgotPassword';
 import UpdateTrains from './UpdateTrains';
 import AddDeleteSeat from './AddDeleteSeat';
 import ManageUserPage from './ManageUserPage';
+import Reservation from './Reservation';
+import Sidebar from './Sidebar';
+import Cancellation from './Cancellation';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
       <Route path="/update-train/:trainNumber" element={<UpdateTrains/>} />
       <Route path="/manage-seats/:trainNumber" element={<AddDeleteSeat />} />
       <Route path="/manageUserPage" element={<ManageUserPage />} />
+      <Route path = "/reservation/:trainNumber/:seatType" element={<Reservation/>}></Route>
+      <Route path="/sidebar" element={<Sidebar />} />
+      <Route path="/cancelticket" element={<Cancellation />} />
     </Routes>
   );
 }

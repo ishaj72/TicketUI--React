@@ -1,7 +1,7 @@
 # Ticket Reservation WebApp with API Integration
 
 A comprehensive web application for reserving tickets, integrated with an API for enhanced functionality.
-**Note:** This project is currently a work in progress and is not yet completed.
+**Note:** API calling and basic structure completed. Styling to be started.
 
 ## Table of Contents
 

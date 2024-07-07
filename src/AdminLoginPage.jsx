@@ -11,7 +11,6 @@ function AdminLoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const url = `https://localhost:7094/api/AdminLogin/Admin?id=${encodeURIComponent(id)}&name=${encodeURIComponent(name)}&password=${encodeURIComponent(password)}`;
 
     axios.post(url)
