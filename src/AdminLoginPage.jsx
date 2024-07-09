@@ -1,6 +1,6 @@
-import  { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 import axios from 'axios';
-import './styles/LoginPage.css';
+import './styles/AdminLogin.css';
 import { useNavigate } from 'react-router-dom';
 
 function AdminLoginPage() {
@@ -18,7 +18,7 @@ function AdminLoginPage() {
         alert(`Logging in ${name} as administrator`);
         const token = result.data;
         localStorage.setItem('adminToken', token);
-         navigate('/addtrains');
+        navigate('/addtrains');
       })
       .catch((error) => {
         console.error('There was an error!', error);
@@ -29,21 +29,21 @@ function AdminLoginPage() {
   return (
     <Fragment>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="adminId">Admin Id</label>
+        <div className="form-group">
+          <label htmlFor="adminId" className="label">Admin Id</label>
           <input type="text" name="adminId" onChange={(e) => setAdminId(e.target.value)} />
         </div>
-        <div>
-          <label htmlFor="adminName">Admin Name</label>
+        <div className="form-group">
+          <label htmlFor="adminName" className="label">Admin Name</label>
           <input type="text" name="adminName" onChange={(e) => setAdminName(e.target.value)} />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className="form-group">
+          <label htmlFor="password" className="label">Password</label>
           <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button type="submit">Login</button>
       </form>
-      <div style={{ marginTop: '10px' }}>
+      <div className="extra">
         <p><a href="/forgotpassword">Forgot Password?</a></p>
       </div>
     </Fragment>

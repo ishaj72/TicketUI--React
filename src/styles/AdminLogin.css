@@ -8,7 +8,6 @@ body {
     align-items: center;
     min-height: 100vh;
     color: #101010;
-    background-color: #f0f4f8; /* Light background color to enhance contrast */
   }
   
   body::before {
@@ -21,25 +20,30 @@ body {
     background-image: url("src/assets/background.jpg");
     background-size: cover;
     background-position: center;
-    opacity: 0.5;
-    filter: blur(8px); /* Increased blur for a softer background */
+    opacity: 0.6;
+    filter: blur(4px); /* Increased blur for a softer background */
     z-index: -1;
   }
   
   form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding: 40px;
     z-index: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Soft shadow for depth */
+    max-width: 400px;
+    width: 100%;
   }
   
   .headers {
-    color: #e5ecee;
+    color: #101010;
     margin: 0;
     margin-bottom: 20px;
     font-size: 24px;
     font-weight: bold;
+    width: 100%;
   }
   
   .form-group {
@@ -48,8 +52,8 @@ body {
     text-align: left;
   }
   
-  .form-group label {
-    color: #deebf0;
+  .label {
+    color: #101010;
     margin-bottom: 5px;
     display: block;
     font-weight: bold;
@@ -84,7 +88,6 @@ body {
     width: 100%;
     font-size: 16px;
     transition: background-color 0.3s;
-    margin-top: 10px; /* Add margin to space out button from inputs */
   }
   
   button:hover {
@@ -92,13 +95,18 @@ body {
   }
   
   .extra {
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
+    width: 100%;
+  }
+  
+  .extra p {
+    color: #ffffff; /* White color */
   }
   
   .links {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 10px; /* Even spacing between links */
   }
   
@@ -110,5 +118,14 @@ body {
   
   .links a:hover {
     color: #0eb6d8;
+  }
+  
+  .form .form-group input {
+    border: none;
+    border-bottom: 2px solid #b0cad7;
+  }
+  
+  .form-group label {
+    color: #dde6e9;
   }
   

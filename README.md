@@ -58,7 +58,7 @@ https://github.com/ishaj72/RailwayTicketAPI
 <img src="src\assets\addtrains2.png" alt="addtrains" width="200" height="150">
 
 - Login Page
-<img src="src\assets\LoginPage.png" alt="addtrains" width="200" height="150">
+<img src="src\assets\loginPage.png" alt="addtrains" width="200" height="150">
 
 - Register Page
 <img src="src\assets\Registeration.png" alt="addtrains" width="200" height="150">
