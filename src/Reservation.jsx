@@ -84,8 +84,13 @@ function Reservation() {
     event.preventDefault();
     const pnr = generatePNR();
     setPnr(pnr);
-    setTicketPrice(calculateCost());
-    bookTickets(pnr);
+    const age = parseInt(passengerAge, 10);
+    if (!isNaN(age)) {
+      setTicketPrice(calculateCost());
+      bookTickets(pnr);
+    } else {
+      alert("Please enter a valid age.");
+    }
   };
 
   return (
@@ -98,7 +103,12 @@ function Reservation() {
         </div>
         <div>
           <label>Passenger Age:</label>
-          <input type="number" value={passengerAge} onChange={(e) => setAge(e.target.value)} />
+          <input
+            type="number"
+            value={passengerAge}
+            onChange={(e) => setAge(e.target.value)}
+            onBlur={(e) => setAge(e.target.value)} // Ensure value is updated on blur
+          />
         </div>
         <div>
           <label>Passenger Gender:</label>
@@ -125,6 +135,9 @@ function Reservation() {
           <p>Ticket Price: {ticketPrice}</p>
         </div>
       )}
+      <div>
+        <button> MAKE PAYMENT </button>
+      </div>
     </div>
   );
 }

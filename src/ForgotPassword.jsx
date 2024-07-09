@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 import axios from 'axios';
 //import { useNavigate } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ function ForgotPassword() {
     const url = `https://localhost:7094/api/User/ChangePassword?userEmail=${encodeURIComponent(userEmail)}&newPassword=${encodeURIComponent(newPassword)}`;
 
     axios.post(url)
-      .then((result) => {
+      .then(() => {
         alert(`Password Changed`);
         //const token = result.data;
         //navigate('/addtrains');

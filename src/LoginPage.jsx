@@ -28,24 +28,33 @@ function LoginPage() {
   };
 
   return (
-    <Fragment>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="userid">UserId</label>
+    <div>
+      <div className='headers'>
+        <h1>LogIn</h1>
+      </div>
+      <Fragment>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
+          <label htmlFor="userid" className="label">UserId</label>
           <input type="text" name="userid" onChange={(e) => setUserId(e.target.value)} />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className="form-group">
+          <label htmlFor="password" className="label" >Password</label>
           <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button type="submit">Login</button>
       </form>
-      <div style={{ marginTop: '10px' }}>
-        <p><a href="/register">Get Registered With Us!!</a></p>
-        <p><a href="/forgotpassword">Forgot Password?</a></p>
-        <p><a href="/adminlogin">Login as Administrator</a></p>
-      </div>
+      <div className='extra'>
+          <div className="links">
+            <p><a href="/register">Register</a></p>
+            <span>|</span>
+            <p><a href="/forgotpassword">Forgot Password?</a></p>
+            <span>|</span>
+            <p><a href="/adminlogin">Admin Login</a></p>
+          </div>
+        </div>
     </Fragment>
+    </div>
   );
 }
 

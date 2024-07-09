@@ -44,7 +44,6 @@ function Registration() {
         <div className='app'>
             <header className='app-header'>
                 <div className='left'>
-                    <h1>Ticketify</h1>
                     {/* <Fragment> */}
                         <form className="registration-form" onSubmit={handleSave}>
                             <div className="form-group">
@@ -86,11 +85,6 @@ function Registration() {
                             <button className="submit-button" type="submit">Register</button>
                         </form>
                     {/* </Fragment> */}
-                </div>
-                <div className='right'>
-                    <div className='overlay'>
-                        <p className='overlay-text'>Welcome<br/>Get yourself registered with us</p>
-                    </div>
                 </div>
             </header>
         </div>
