@@ -1,8 +1,30 @@
+/* styles/ManageUserPage.css */
+
 .container {
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  
 }
 
 .header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: white; /* Ensure header text color is white */
+}
+
+form {
+  width: 100%;
+  max-width: 600px;
+  
+  padding: 20px;
+  border-radius: 8px;
   margin-bottom: 20px;
 }
 
@@ -10,36 +32,81 @@
   margin-bottom: 15px;
 }
 
+label {
+  color: white; /* Ensure label text color is white */
+  margin-bottom: 5px;
+  display: block;
+}
+
+input {
+  width: calc(100% - 20px); /* Adjust input width */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2); /* Adjust input background transparency */
+  color: white; /* Ensure input text color is white */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #59808e;;
+  border: none;
+  border-radius: 4px;
+  color: white; /* Ensure button text color is white */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.train-details {
+  width: 100%;
+  max-width: 800px;
+}
+.train-details tbody{
+  color:#ccc
+}
 .table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
 .table th, .table td {
-  border: 1px solid #ddd;
+  border: 1px solid white; /* Adjust table border color */
   padding: 8px;
+  text-align: center;
 }
 
 .table th {
-  background-color: #f2f2f2;
-  text-align: left;
+  background-color: #587883;
+  color: white; /* Ensure table header text color is white */
+}
+
+.table td {
+  color: white; /* Ensure table cell text color is white */
+}
+
+.class-button {
+  padding: 8px 16px;
+  background-color: #73b9d3;
+  border: none;
+  border-radius: 4px;
+  color: white; /* Ensure button text color is white */
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.class-button:hover {
+  background-color: #2b8fc1;
 }
 
 .button-group {
   display: flex;
-  gap: 10px;
-}
-
-.class-button {
-  padding: 5px 10px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  border-radius: 3px;
-  transition: background-color 0.3s;
-}
-
-.class-button:hover {
-  background-color: #0056b3;
+  justify-content: center;
+  align-items: center;
 }

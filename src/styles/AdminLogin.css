@@ -100,8 +100,9 @@ body {
     width: 100%;
   }
   
-  .extra p {
-    color: #ffffff; /* White color */
+  .extra p a{
+    text-decoration: none;
+    color: #ffffff; 
   }
   
   .links {
@@ -128,4 +129,7 @@ body {
   .form-group label {
     color: #dde6e9;
   }
-  
+  .header h1{
+    color:#b0cad7;
+    margin-right:290px;
+  }

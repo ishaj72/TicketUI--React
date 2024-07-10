@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './styles/AddTrains.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// get train by train number function to add
+
 function AddTrains() {
   const [trainName, setTrainName] = useState('');
   const [trainNumber, setTrainNumber] = useState('');
@@ -118,6 +118,46 @@ function AddTrains() {
     <div className="container">
       <header className="header">
         <h1>Add Trains</h1>
+      </header>
+      <div className="train-form">
+        <form onSubmit={handleSave}>
+          <div className="form-group">
+            <label htmlFor="tname">Train Name</label>
+            <input type="text" id="tname" name="tname" value={trainName} onChange={(e) => setTrainName(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="tnumber">Train Number</label>
+            <input type="text" id="tnumber" name="tnumber" value={trainNumber} onChange={(e) => setTrainNumber(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="source">Source</label>
+            <input type="text" id="source" name="source" value={source} onChange={(e) => setSource(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="destination">Destination</label>
+            <input type="text" id="destination" name="destination" value={destination} onChange={(e) => setDestination(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="sarrival">Source Arrival</label>
+            <input type="text" id="sarrival" name="sarrival" value={sourceArrival} onChange={(e) => setSourceArrival(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="sdeparture">Source Departure</label>
+            <input type="text" id="sdeparture" name="sdeparture" value={sourceDeparture} onChange={(e) => setSourceDeparture(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="darrival">Destination Arrival</label>
+            <input type="text" id="darrival" name="darrival" value={destinationArrival} onChange={(e) => setDestinationArrival(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="ddeparture">Destination Departure</label>
+            <input type="text" id="ddeparture" name="ddeparture" value={destinationDeparture} onChange={(e) => setDestinationDeparture(e.target.value)} />
+          </div>
+          <button type="submit">Add Train</button>
+        </form>
+      </div>
+      <div className="train-list">
+        <h2>Train List</h2>
         <div className="card-container">
           {trains.slice(0, visibleTrains).map((train, index) => (
             <div className="card train-card" key={index}>
@@ -136,43 +176,6 @@ function AddTrains() {
               </div>
             </div>
           ))}
-          <div className="card add-train-card">
-            <form onSubmit={handleSave}>
-              <div className="form-group">
-                <label htmlFor="tname">Train Name</label>
-                <input type="text" id="tname" name="tname" value={trainName} onChange={(e) => setTrainName(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="tnumber">Train Number</label>
-                <input type="text" id="tnumber" name="tnumber" value={trainNumber} onChange={(e) => setTrainNumber(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="source">Source</label>
-                <input type="text" id="source" name="source" value={source} onChange={(e) => setSource(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="destination">Destination</label>
-                <input type="text" id="destination" name="destination" value={destination} onChange={(e) => setDestination(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="sarrival">Source Arrival</label>
-                <input type="text" id="sarrival" name="sarrival" value={sourceArrival} onChange={(e) => setSourceArrival(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="sdeparture">Source Departure</label>
-                <input type="text" id="sdeparture" name="sdeparture" value={sourceDeparture} onChange={(e) => setSourceDeparture(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="darrival">Destination Arrival</label>
-                <input type="text" id="darrival" name="darrival" value={destinationArrival} onChange={(e) => setDestinationArrival(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="ddeparture">Destination Departure</label>
-                <input type="text" id="ddeparture" name="ddeparture" value={destinationDeparture} onChange={(e) => setDestinationDeparture(e.target.value)} />
-              </div>
-              <button type="submit">Add Train</button>
-            </form>
-          </div>
         </div>
         {trains.length > 3 && (
           <div className="show-buttons">
@@ -184,7 +187,7 @@ function AddTrains() {
             )}
           </div>
         )}
-      </header>
+      </div>
     </div>
   );
 }

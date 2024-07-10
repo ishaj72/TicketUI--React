@@ -1,0 +1,72 @@
+/* Reservation.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: white; /* Set header text color to white */
+    margin-bottom: 20px;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+    color: white; /* Set label text color to white */
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust input background transparency */
+    color: white; /* Set input text color to white */
+  }
+  
+  select {
+    width: 100%;
+  }
+  
+  button[type="submit"],
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white; /* Set button text color to white */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .ticket-details {
+    margin-top: 20px;
+  }
+  
+  .ticket-details p {
+    color: white; /* Set ticket details text color to white */
+  }
+  
+  .make-payment-button {
+    margin-top: 20px;
+  }
+  

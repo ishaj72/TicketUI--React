@@ -27,7 +27,11 @@ function AdminLoginPage() {
   };
 
   return (
-    <Fragment>
+    <div>
+      <div className='header'>
+        <h1>Admin LogIn</h1>
+      </div>
+      <Fragment>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="adminId" className="label">Admin Id</label>
@@ -47,6 +51,7 @@ function AdminLoginPage() {
         <p><a href="/forgotpassword">Forgot Password?</a></p>
       </div>
     </Fragment>
+    </div>
   );
 }
 

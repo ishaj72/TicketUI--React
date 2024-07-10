@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import './styles/Reservation.css'; // Import CSS file for styling
 
 function Reservation() {
   const { trainNumber, seatType } = useParams();
@@ -94,7 +95,7 @@ function Reservation() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Reservation Details</h2>
       <form onSubmit={handleBooking}>
         <div>
@@ -125,7 +126,7 @@ function Reservation() {
         <button type="submit">Book Ticket</button>
       </form>
       {pnr && (
-        <div>
+        <div className="ticket-details">
           <h3>Ticket Details</h3>
           <p>PNR: {pnr}</p>
           <p>Passenger Name: {passengerName}</p>
@@ -136,7 +137,7 @@ function Reservation() {
         </div>
       )}
       <div>
-        <button> MAKE PAYMENT </button>
+        <button className="make-payment-button">MAKE PAYMENT</button>
       </div>
     </div>
   );

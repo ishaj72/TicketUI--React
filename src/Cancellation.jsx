@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import './styles/Cancellation.css';
+
 
 function Cancellation() {
     const [pnr, setPnr] = useState('');
@@ -18,11 +20,11 @@ function Cancellation() {
     };
 
     return (
-        <div>
-            <div>
+        <div className="container">
+            <div className="header">
                 <h1>Cancel Ticket</h1>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <label htmlFor="cancellation">Enter PNR to cancel the ticket:</label>
                 <input type="text" id="cancellation" name="cancellation" value={pnr} onChange={(e) => setPnr(e.target.value)} required />
                 <button type="submit">Cancel Ticket</button>
